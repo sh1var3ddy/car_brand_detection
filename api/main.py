@@ -51,7 +51,7 @@ def home():
     return 'hello'
 
 @app.post('/predict')
-async def predict(file: bytes = File(...)):
+def predict(file: bytes = File(...)):
     # data=data.dict()
     # image = base64.b64decode(data['image'])
     image = get_image_from_bytes(file)
