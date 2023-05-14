@@ -6,4 +6,6 @@ ipython
 pandas 
 matplotlib
 opencv-python
-Pillow 
+Pillow
+fastapi
+python-multipart
