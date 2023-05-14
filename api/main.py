@@ -8,7 +8,7 @@ from itertools import product
 from PIL import ImageFile
 from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
-# import asyncio
+import asyncio
  
 # convert into JSON:
 
@@ -51,7 +51,7 @@ def get_image_from_bytes(binary_image):
 def home():
     return 'hello'
 
-# @asyncio.coroutine
+@asyncio.coroutine
 @app.post('/predict')
 async def predict(file: bytes = File(...)):
     # data=data.dict()
