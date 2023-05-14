@@ -8,7 +8,8 @@ from itertools import product
 from PIL import ImageFile
 from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
-
+import asyncio
+ 
 # convert into JSON:
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -50,8 +51,9 @@ def get_image_from_bytes(binary_image):
 def home():
     return 'hello'
 
+@asyncio.coroutine
 @app.post('/predict')
-async def predict(file: bytes = File(...)):
+def predict(file: bytes = File(...)):
     # data=data.dict()
     # image = base64.b64decode(data['image'])
     image = get_image_from_bytes(file)
